@@ -104,7 +104,7 @@ if st.session_state.session_id == toolkit.get_active_session(st.session_state.us
 
     if st.session_state.telegram_user_id is None:
         #st.sidebar.link_button(label='Connect Telegram', url='https://t.me/psp_ultra_bot', help='Hit this button to receive telegram alerts.', type='primary')
-        st.button('Open link', on_click=toolkit.open_page, args=('https://t.me/psp_ultra_bot',))
+        st.button('Open link', on_click=toolkit.open_page(url='https://t.me/psp_ultra_bot'))
         st.session_state.telegram_user_id = db.get_telegram_user_id(username=username)[0]
 
     st.sidebar.subheader(f"Default settings")
