@@ -66,6 +66,8 @@ if 'users_fetched' not in st.session_state:
     st.session_state.telegram_user_id = db.get_telegram_user_id(username=username)[0]
     st.session_state.users_fetched = True
 
+st.write(st.session_state.telegram_user_id)
+
 
 # Allow only ONE session per user
 # See https://discuss.streamlit.io/t/right-way-to-manage-same-user-opening-multiple-sessions/25608
