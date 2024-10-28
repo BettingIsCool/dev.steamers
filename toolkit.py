@@ -68,7 +68,4 @@ def get_decimal_odds(american_odds: int):
 def redirect_button():
     url = 'https://t.me/psp_ultra_bot'
 
-    st.sidebar.markdown(f'''
-    <a href={url}><button style="background-color:Red;">Click here to connect! Link will expire in 5 minutes.</button></a>
-    ''',
-                unsafe_allow_html=True)
+    st.sidebar.markdown(f'''<a href={url}><button style="background-color:Red;">Click here to connect! Link will expire in 3 minutes.</button></a>''',unsafe_allow_html=True)
