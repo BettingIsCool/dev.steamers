@@ -65,20 +65,10 @@ def get_decimal_odds(american_odds: int):
     """
     return american_odds / 100 + 1 if american_odds >= 0 else - 100 / american_odds + 1
 
-def redirect_button(url: str, text: str= None, color="#FD504D"):
-    st.markdown(
-    f"""
-    <a href="{url}" target="_self">
-        <div style="
-            display: inline-block;
-            padding: 0.5em 1em;
-            color: #FFFFFF;
-            background-color: {color};
-            border-radius: 3px;
-            text-decoration: none;">
-            {text}
-        </div>
-    </a>
-    """,
-    unsafe_allow_html=True
-    )
+def redirect_button():
+    url = 'https://stackoverflow.com'
+
+    st.markdown(f'''
+    <a href={url}><button style="background-color:GreenYellow;">Stackoverflow</button></a>
+    ''',
+                unsafe_allow_html=True)
