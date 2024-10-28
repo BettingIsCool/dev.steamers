@@ -69,6 +69,6 @@ def redirect_button():
     url = 'https://t.me/psp_ultra_bot'
 
     st.sidebar.markdown(f'''
-    <a href={url}><button style="background-color:Red;">Click here! Link will expire in 5 minutes.</button></a>
+    <a href={url}><button style="background-color:Red;">Click here to connect! Link will expire in 5 minutes.</button></a>
     ''',
                 unsafe_allow_html=True)
