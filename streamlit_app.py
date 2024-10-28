@@ -66,8 +66,6 @@ if 'users_fetched' not in st.session_state:
     st.session_state.telegram_user_id = db.get_telegram_user_id(username=username)[0]
     st.session_state.users_fetched = True
 
-st.write(st.session_state.telegram_user_id)
-
 
 # Allow only ONE session per user
 # See https://discuss.streamlit.io/t/right-way-to-manage-same-user-opening-multiple-sessions/25608
@@ -103,11 +101,13 @@ if st.session_state.session_id == toolkit.get_active_session(st.session_state.us
 
     # Welcome message in the sidebar
     st.sidebar.subheader(f"Welcome {username}")
-    st.sidebar.subheader(f"Default settings")
 
     if st.session_state.telegram_user_id is None:
-        st.sidebar.link_button(label='Connect Telegram', url='https://t.me/psp_ultra_bot', help='Hit this button to receive telegram alerts.', type='primary')
+        #st.sidebar.link_button(label='Connect Telegram', url='https://t.me/psp_ultra_bot', help='Hit this button to receive telegram alerts.', type='primary')
+        st.button('Open link', on_click=toolkit.open_page, args=('https://t.me/psp_ultra_bot',))
+        st.session_state.telegram_user_id = db.get_telegram_user_id(username=username)[0]
 
+    st.sidebar.subheader(f"Default settings")
     # update every 5 seconds
     st_autorefresh(interval=10 * 1000, debounce=True, key="dataframerefresh")
 

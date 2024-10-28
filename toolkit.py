@@ -1,5 +1,6 @@
 import base64
 import streamlit as st
+from streamlit.components.v1 import html
 
 
 def play_notification():
@@ -63,3 +64,11 @@ def get_decimal_odds(american_odds: int):
     :rtype: float
     """
     return american_odds / 100 + 1 if american_odds >= 0 else - 100 / american_odds + 1
+
+def open_page(url):
+    open_script= """
+        <script type="text/javascript">
+            window.open('%s', '_blank').focus();
+        </script>
+    """ % (url)
+    html(open_script)
