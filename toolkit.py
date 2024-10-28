@@ -65,10 +65,20 @@ def get_decimal_odds(american_odds: int):
     """
     return american_odds / 100 + 1 if american_odds >= 0 else - 100 / american_odds + 1
 
-def open_page(url):
-    open_script= """
-        <script type="text/javascript">
-            window.open('%s', '_blank').focus();
-        </script>
-    """ % (url)
-    html(open_script)
+def redirect_button(url: str, text: str= None, color="#FD504D"):
+    st.markdown(
+    f"""
+    <a href="{url}" target="_self">
+        <div style="
+            display: inline-block;
+            padding: 0.5em 1em;
+            color: #FFFFFF;
+            background-color: {color};
+            border-radius: 3px;
+            text-decoration: none;">
+            {text}
+        </div>
+    </a>
+    """,
+    unsafe_allow_html=True
+    )
