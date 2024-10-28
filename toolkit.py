@@ -68,7 +68,7 @@ def get_decimal_odds(american_odds: int):
 def redirect_button():
     url = 'https://stackoverflow.com'
 
-    st.markdown(f'''
-    <a href={url}><button style="background-color:GreenYellow;">Stackoverflow</button></a>
+    st.sidebar.markdown(f'''
+    <a href={url}><button style="background-color:Red;">Click here! Link will expire in 5 minutes.</button></a>
     ''',
                 unsafe_allow_html=True)
