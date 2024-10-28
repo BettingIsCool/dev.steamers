@@ -102,7 +102,7 @@ if st.session_state.session_id == toolkit.get_active_session(st.session_state.us
     # Welcome message in the sidebar
     st.sidebar.subheader(f"Welcome {username}")
 
-    if st.session_state.telegram_user_id is None:
+    if st.session_state.telegram_user_id is not None:
 
         #st.sidebar.link_button(label='Connect Telegram', url='https://t.me/psp_ultra_bot', on_click=toolkit.open_page(url='https://t.me/psp_ultra_bot'), help='Hit this button to receive telegram alerts.', type='primary')
         st.sidebar.button('Connect Telegram', help='Hit this button to receive telegram alerts.', type='primary', on_click=toolkit.redirect_button)
@@ -228,6 +228,8 @@ if st.session_state.session_id == toolkit.get_active_session(st.session_state.us
 
     # Create text input for default_book5
     st.session_state.default_book5 = st.sidebar.selectbox(label="Select default bookmaker 5", options=BOOKS.keys(), index=list(BOOKS.keys()).index(st.session_state.default_book5), format_func=lambda x: BOOKS.get(x), on_change=db.change_user_book5, args=(username, placeholder1), key='default_book5_key')
+
+    st.write("👉 ATTENTION TELEGRAM USERS! Default settings (left sidebar) will be applied to your telegram alerts. The above filters won't have an effect on your telegram alerts.")
 
     st.write("👉 The app updates automatically. DO NOT REFRESH YOUR BROWSER! Every refresh results in a log out.")
 
