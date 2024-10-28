@@ -66,7 +66,7 @@ def get_decimal_odds(american_odds: int):
     return american_odds / 100 + 1 if american_odds >= 0 else - 100 / american_odds + 1
 
 def redirect_button():
-    url = 'https://stackoverflow.com'
+    url = 'https://t.me/psp_ultra_bot'
 
     st.sidebar.markdown(f'''
     <a href={url}><button style="background-color:Red;">Click here! Link will expire in 5 minutes.</button></a>
