@@ -103,9 +103,31 @@ if st.session_state.session_id == toolkit.get_active_session(st.session_state.us
     st.sidebar.subheader(f"Welcome {username}")
 
     if st.session_state.telegram_user_id is None:
-        st.sidebar.link_button(label='Connect Telegram', url='https://t.me/psp_ultra_bot', on_click=toolkit.open_page(url='https://t.me/psp_ultra_bot'), help='Hit this button to receive telegram alerts.', type='primary')
+
+        # Initialize the session state for the button if it doesn't exist
+        if 'button_clicked' not in st.session_state:
+            st.session_state['button_clicked'] = False
+
+
+        # Function to set the button state when clicked
+        def on_click():
+            st.session_state['button_clicked'] = True
+
+
+        # Create a link button
+        st.link_button("Click me to navigate!", "https://www.example.com", on_click=on_click)
+
+        # Check if the button was clicked
+        if st.session_state['button_clicked']:
+            st.write("The button was clicked!")
+            # Reset the state if you want the message to show only once per click
+            st.session_state['button_clicked'] = False
+        else:
+            st.write("Button has not been clicked yet.")
+
+        #st.sidebar.link_button(label='Connect Telegram', url='https://t.me/psp_ultra_bot', on_click=toolkit.open_page(url='https://t.me/psp_ultra_bot'), help='Hit this button to receive telegram alerts.', type='primary')
         #st.button('Open link', on_click=toolkit.open_page(url='https://t.me/psp_ultra_bot'))
-        st.session_state.telegram_user_id = db.get_telegram_user_id(username=username)[0]
+        #st.session_state.telegram_user_id = db.get_telegram_user_id(username=username)[0]
 
     st.sidebar.subheader(f"Default settings")
     # update every 5 seconds
