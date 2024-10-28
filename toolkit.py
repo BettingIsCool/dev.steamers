@@ -1,6 +1,6 @@
 import base64
 import streamlit as st
-from streamlit.components.v1 import html
+import db_steamers_remote
 
 
 def play_notification():
@@ -69,3 +69,4 @@ def redirect_button():
     url = 'https://t.me/psp_ultra_bot'
 
     st.sidebar.markdown(f'''<a href={url}><button style="background-color:Red;">Click here to connect! Link will expire in 3 minutes.</button></a>''',unsafe_allow_html=True)
+    db_steamers_remote.set_telegram_button_pressed(username=st.session_state.email)
